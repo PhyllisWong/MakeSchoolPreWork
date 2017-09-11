@@ -74,6 +74,8 @@ class MySimulation: NeighborsSolutionSimulation {
 		grid = newGrid // this contains your 2D grid! Update this value.
 	}
 	
+	//re-adding
+	
 	
 /*:
 
