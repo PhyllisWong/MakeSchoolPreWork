@@ -20,28 +20,14 @@ var palette: [Character?] = []
     The display on the right will tell you if your array is correct: if any of your cells light up red, that's an incorrect value! Refer back to the previous pages if you need a refresher on syntax.
 
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for index in 0..<8 {
+	if palette.count < 5 {
+		palette.append("🐱")
+	} else {
+		palette.append(nil)
+	}
+}
+//print(palette)
 
 
 
@@ -49,34 +35,6 @@ var palette: [Character?] = []
 
 
 //: [Previous](@previous) | [Next](@next)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

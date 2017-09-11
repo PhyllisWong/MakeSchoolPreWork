@@ -145,10 +145,10 @@ print(alwaysAString)
 
 let optionalArray: [Int]? = [1, 2, 3, 4]
 let arrayLength = optionalArray?.count
-print(arrayLength)
+print(arrayLength!)
 
 let firstElement = optionalArray?[0]
-print(firstElement)
+print(firstElement!)
 
 /*:
 
