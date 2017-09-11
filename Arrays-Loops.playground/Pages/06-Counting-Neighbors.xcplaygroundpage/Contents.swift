@@ -57,16 +57,18 @@ class MySimulation: NeighborsSimulation {
      If you get red numbers in the overlay, check your logic again (including `getAlive`) – look at which numbers are wrong to you pinpoint any bugs in your code. Grab a pen and some paper if you need to.
 
 */
-
+// no need to iterate because the cell is passed into the function
 
     override func countNeighbors(grid: [[Character?]], column x: Int, row y: Int) -> Int {
+		
 		var aliveCount:Int = 0
+		
 		// let alive = getAlive(grid: grid, column: x -1, row: y)
 		aliveCount += getAlive(grid: grid, column: x - 1, row: y - 1)
 		aliveCount += getAlive(grid: grid, column: x - 1, row: y)
 		aliveCount += getAlive(grid: grid, column: x - 1, row: y + 1)
-		aliveCount += getAlive(grid: grid, column: x , row: y - 1)
-		aliveCount += getAlive(grid: grid, column: x , row: y + 1)
+		aliveCount += getAlive(grid: grid, column: x, row: y - 1)
+		aliveCount += getAlive(grid: grid, column: x, row: y + 1)
 		aliveCount += getAlive(grid: grid, column: x + 1, row: y - 1)
 		aliveCount += getAlive(grid: grid, column: x + 1, row: y)
 		aliveCount += getAlive(grid: grid, column: x + 1, row: y + 1)

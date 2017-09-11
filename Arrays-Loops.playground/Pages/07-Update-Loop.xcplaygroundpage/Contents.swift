@@ -43,41 +43,38 @@ class MySimulation: NeighborsSolutionSimulation {
 
 */
 
-    override func update() {
-        // Student code here!
+	override func update() {
+		// Student code here!
 		var newGrid = grid
+		
+		// iterate through the grid using nested loops
 		for x in 0..<grid.count {
 			for y in 0..<grid[x].count {
-				//print(grid.count)
-				//print(grid[x].count)
-				//print(cell)
-				
+
 				let cell = grid[x][y]
+				// print(cell)
 				
 				let neighborAliveCount = countNeighbors(grid: grid, column: x, row: y)
+				
 				if cell == nil {
-					//cell is dead
+					// cell is dead
 					if neighborAliveCount == 3 {
-						//a new cell is born!
+						// a new cell is born
 						newGrid[x][y] = liveChar
+						
 					}
-					//dont' need and else since copied the entire grid
-					// ove to newGrid
-					
 				} else {
 					// cell is alive
-					if neighborAliveCount < 2 || neighborAliveCount > 3 {
-						//dies of over/under population
+					if (neighborAliveCount < 2) || (neighborAliveCount > 3) {
 						newGrid[x][y] = nil
 					}
-					//dont need an else since we copied the entire grid
-					//over to newGrid
 				}
 			}
 		}
 		grid = newGrid // this contains your 2D grid! Update this value.
-    }
-
+	}
+	
+	
 /*:
 
  - callout(Hint): If you're having trouble, create a second grid to hold the next step's values. At the end of the update function, set `grid` = `newGrid`. Plan out your approach with a neighbor if you need to. This simple game is challenging to implement right on your first shot!
