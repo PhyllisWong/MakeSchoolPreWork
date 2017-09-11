@@ -62,9 +62,16 @@ class MySimulation: NeighborsSimulation {
 		var alive:Int = 0
 		
 		if (x > 0 && x < grid.count) && (y > 0 && y < grid[0].count)  {
-			for i in -1..<1 {
-				for j in -1..<1 {
-					alive = self.getAlive(grid: grid, column: x, row: y )
+			for i in 0..<grid.count {
+				for j in 0..<grid[0].count {
+	
+					if (i == 1) {
+						alive = getAlive(grid: grid, column: x, row: y)
+					} else if (i < grid.count - 1 && j == 1) {
+					 alive = getAlive(grid: grid, column: x, row: y)
+					} else if (j < grid[0].count - 1 && i == 1) {
+						alive = getAlive(grid: grid, column: x, row: y)
+					}
 				}
 			}
 		}
