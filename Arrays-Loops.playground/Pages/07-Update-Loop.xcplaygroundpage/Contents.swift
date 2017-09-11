@@ -45,7 +45,37 @@ class MySimulation: NeighborsSolutionSimulation {
 
     override func update() {
         // Student code here!
-        grid // this contains your 2D grid! Update this value.
+		var newGrid = grid
+		for x in 0..<grid.count {
+			for y in 0..<grid[x].count {
+				//print(grid.count)
+				//print(grid[x].count)
+				//print(cell)
+				
+				let cell = grid[x][y]
+				
+				let neighborAliveCount = countNeighbors(grid: grid, column: x, row: y)
+				if cell == nil {
+					//cell is dead
+					if neighborAliveCount == 3 {
+						//a new cell is born!
+						newGrid[x][y] = liveChar
+					}
+					//dont' need and else since copied the entire grid
+					// ove to newGrid
+					
+				} else {
+					// cell is alive
+					if neighborAliveCount < 2 || neighborAliveCount > 3 {
+						//dies of over/under population
+						newGrid[x][y] = nil
+					}
+					//dont need an else since we copied the entire grid
+					//over to newGrid
+				}
+			}
+		}
+		grid = newGrid // this contains your 2D grid! Update this value.
     }
 
 /*:
