@@ -28,10 +28,12 @@ class MySimulation: NeighborsSimulation {
 
     func getAlive(grid: [[Character?]], column x: Int, row y: Int) -> Int {
 
-
-
-
-        return 1
+		if (x >= grid.count || y >= grid[0].count) {
+			return 0
+		} else if  (grid[x][y] == nil) {
+			return 0
+		}
+		return 1
     }
 
 /*:

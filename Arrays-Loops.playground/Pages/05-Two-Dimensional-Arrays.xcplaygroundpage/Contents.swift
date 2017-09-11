@@ -29,6 +29,16 @@ var grid: [[Character?]] = []
  - callout(Challenge): Try utilizing some for-loop logic to append 8 of these empty columns to make a 8x10 grid.
 
 */
+let column = [Character?] (repeating: nil, count: 10)
+//grid.append(column)
+
+for row in 0..<8 {
+	grid.append(column)
+}
+
+
+
+
 
 
 
@@ -48,15 +58,16 @@ var grid: [[Character?]] = []
  - important: grid[0][0] represents the bottom-left corner.
 
 */
-
-
-
-
-
-
-
-
-
+grid[0][0] = "🐱"
+grid[1][1] = "🐱"
+grid[2][2] = "🐱"
+grid[2][3] = "🐱"
+grid[3][4] = "🐱"
+grid[4][5] = "🐱"
+grid[5][6] = "🐱"
+grid[5][7] = "🐱"
+grid[6][8] = "🐱"
+grid[7][9] = "🐱"
 
 
 
