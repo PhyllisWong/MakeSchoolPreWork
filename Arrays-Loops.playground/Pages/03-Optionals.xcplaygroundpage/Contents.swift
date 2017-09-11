@@ -40,6 +40,7 @@ maybeAnInt = nil
  We can then safely use **force unwrapping** to get its value. Force unwrapping is done by putting an exclamation point (`!`) after the name of the variable we want to unwrap. This assures Swift that the optional contains a value and that it is therefore safe to read. If we're wrong, the code will crash. Here, we test whether `maybeAnInt` has a value and if it does, we rip open the box (force unwrap) and print its value.
 
  */
+maybeAnInt = 10
 
 if maybeAnInt != nil {
     print("maybeAnInt contains a value, and it is \(maybeAnInt!)")
@@ -56,11 +57,28 @@ if maybeAnInt != nil {
  A more compact way of testing and acting on an optional value is **optional binding**, where we test for the presence of an object and, if it exists, we create a new variable for this object in a narrower scope. Here, we "bind" the value of `maybeAnInt` (if present) to a new constant named `definitelyAnInt`, which only exists inside the `if/else` block, and print it:
 
  */
+maybeAnInt = nil
+maybeAnInt = 20
+maybeAnInt = nil
+maybeAnInt = 24
+maybeAnInt = nil
 
 if let definitelyAnInt = maybeAnInt {
     print("maybeAnInt contains a value, and it is \(definitelyAnInt)")
 } else {
     print("maybeAnInt does not contain a value")
+}
+
+// this is the common practice of safeUnwrapping to the same var name
+
+maybeAnInt = 15
+maybeAnInt = nil
+maybeAnInt = 14
+
+if let maybeAnInt = maybeAnInt {
+	print("this is my safe unwrap, and it contains the value \(maybeAnInt)")
+	} else {
+	print("not so fast tiger")
 }
 
 /*:
@@ -111,15 +129,26 @@ print(alwaysAString)
 
 //let intDescription = maybeAnInt.description // Value of optional type 'Int?' not unwrapped!
 
+//if let intDescription = maybeAnInt {
+//	print("maybeAnInt.description")
+//} else {
+//	print("nah bruh.....!")
+//}
+
+
+
 /*:
 
  But we're programmers and we like working around the rules. You don't have to give Swift a non-optional if you use a technique called **optional chaining**. Chaining allows you to try to call a method on an optional. It will call the method if the optional has a value, and returns `nil` if it does not. Chaining is performed by placing a question mark between the variable name and the dot, parenthesis, or bracket that follows it:
 
  */
 
-let optionalArray: [Int]? = [ 1, 2, 3, 4 ]
+let optionalArray: [Int]? = [1, 2, 3, 4]
 let arrayLength = optionalArray?.count
+print(arrayLength)
+
 let firstElement = optionalArray?[0]
+print(firstElement)
 
 /*:
 
@@ -135,8 +164,9 @@ let firstElement = optionalArray?[0]
 
  */
 
-let optionalString: String? = nil
+let optionalString: String? = "Qui Qui"
 let petName = optionalString ?? "Fido"
+print(petName)
 
 /*:
 
